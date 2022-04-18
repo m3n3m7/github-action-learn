@@ -44,4 +44,11 @@ jobs:
           mvn --version
           gradle --version
           ant -version 
-          
+          echo 5- what is the work space location?
+          echo $RUNNER_WORKSAPCE
+          echo 6- who is runing this scrip?
+          whoami
+          echo 7- how the disk laid out?
+          df 
+          echo 8- what environment variable are available?
+          env
