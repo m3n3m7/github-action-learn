@@ -45,7 +45,7 @@ jobs:
           gradle --version
           ant -version 
           echo 5- what is the work space location?
-          echo $RUNNER_WORKSAPCE
+          pwd
           echo 6- who is runing this scrip?
           whoami
           echo 7- how the disk laid out?
