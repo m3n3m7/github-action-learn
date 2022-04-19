@@ -15,8 +15,36 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
+  # this file contain to build on windows and linux
+  build-on-windows:
+    # The type of runner that the job will run on
+    runs-on: windows-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: step1 - log the pre-build disc space
+        run: ls
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: step2 - check out the github main branch  
+        uses: actions/checkout@v3
+      
+      - name: step3 - setup javajdk v1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: step4 - build your jakarta web app with maven 
+        run: echo mvn -B package --file pom.xml
+
+      - name: step5 - check windows execution policy
+        run: |
+          echo here is windows EXECUTIONPOLICY
+          Get-ExecutionPolicy
+          echo $ANDROID_SDK_ROOT
+
+  # this build in on ubuntu latest
+  build-on-ubuntu:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
